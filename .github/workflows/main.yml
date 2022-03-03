@@ -8,11 +8,11 @@ jobs:
     steps:
     - name: Check for broken links
       id: link-report
-      uses: celinekurpershoek/link-checker@master
+      uses: jodyhoonstarr/link-checker/link-checker@master
       with:
-        url: 'https://github.com/celinekurpershoek/link-checker'
+        url: 'https://ledapplications.github.io/lehd-schema/lehd_shapefiles.html'
         honorRobotExclusions: true
-        ignorePatterns: 'github'
+        ignorePatterns: 'https://ledapplications.github.io/lehd-schema/lehd_shp_gc.zip'
         recursiveLinks: false
     - name: Get the result
       run: echo "${{steps.link-report.outputs.result}}"
