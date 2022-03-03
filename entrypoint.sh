@@ -38,6 +38,8 @@ echo -e "Configuration: \n Honor robot exclusions: $GREEN$2$NC, \n Exclude URLs 
 
 # Create command and remove extra quotes
 # Put result in variable to be able to iterate on it later
+echo "Command:"
+echo blc "$1" $EXCLUDE $SET_FOLLOW $SET_RECURSIVE -v
 OUTPUT="$(blc "$1" $EXCLUDE $SET_FOLLOW $SET_RECURSIVE -v | sed 's/"//g')"
 
 # Count lines of output
