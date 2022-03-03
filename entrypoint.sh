@@ -48,7 +48,7 @@ TOTAL_COUNT="$(wc -l <<< "$OUTPUT")"
 # Count 'BROKEN' lines of result or return 0
 if grep -q 'BROKEN' <<< "$OUTPUT" 
 then
-    BROKEN="$(grep -q 'BROKEN' <<< "$OUTPUT")"
+    BROKEN="$(grep 'BROKEN' <<< "$OUTPUT")"
     BROKEN_COUNT="$(wc -l <<< "$BROKEN")"
 else 
     BROKEN_COUNT=0
