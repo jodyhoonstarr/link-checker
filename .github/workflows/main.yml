@@ -16,11 +16,8 @@ jobs:
         # optional:
         ignorePatterns: ''
         recursiveLinks: false
-    - name: Full Schema Result
-      if: always()
-      run: echo "${{steps.link-report-full-schema.outputs.result}}"
 
-    - name: Check for broken links
+    - name: Shapefiles Link Check
       if: always()
       id: link-report-shapefiles
       uses: jodyhoonstarr/link-checker@master
@@ -29,6 +26,3 @@ jobs:
         honorRobotExclusions: true
         ignorePatterns: 'https://ledapplications.github.io/lehd-schema/lehd_shp_*.zip'
         recursiveLinks: false
-    - name: Get the result
-      if: always()
-      run: echo "${{steps.link-report.outputs.result}}"
