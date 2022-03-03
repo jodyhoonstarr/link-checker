@@ -12,7 +12,7 @@ jobs:
       with:
         url: 'https://ledapplications.github.io/lehd-schema/lehd_shapefiles.html'
         honorRobotExclusions: true
-        ignorePatterns: 'https://ledapplications.github.io/lehd-schema/lehd_shp_gc.zip,https://ledapplications.github.io/lehd-schema/lehd_shp_gs.zip'
+        ignorePatterns: 'https://ledapplications.github.io/lehd-schema/lehd_shp_*.zip'
         recursiveLinks: false
     - name: Get the result
       run: echo "${{steps.link-report.outputs.result}}"
