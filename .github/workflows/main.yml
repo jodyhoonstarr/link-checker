@@ -6,8 +6,23 @@ jobs:
     runs-on: ubuntu-latest
     name: Check for broken links
     steps:
+    - name: Full Schema Link Check
+      if: always()
+      id: link-report-full-schema
+      uses: jodyhoonstarr/link-checker@master
+      with:
+        # Required:
+        url: 'https://ledapplications.github.io/lehd-schema/lehd_public_use_schema.html'
+        # optional:
+        ignorePatterns: ''
+        recursiveLinks: false
+    - name: Full Schema Result
+      if: always()
+      run: echo "${{steps.link-report-full-schema.outputs.result}}"
+
     - name: Check for broken links
-      id: link-report
+      if: always()
+      id: link-report-shapefiles
       uses: jodyhoonstarr/link-checker@master
       with:
         url: 'https://ledapplications.github.io/lehd-schema/lehd_shapefiles.html'
@@ -15,4 +30,5 @@ jobs:
         ignorePatterns: 'https://ledapplications.github.io/lehd-schema/lehd_shp_*.zip'
         recursiveLinks: false
     - name: Get the result
+      if: always()
       run: echo "${{steps.link-report.outputs.result}}"
